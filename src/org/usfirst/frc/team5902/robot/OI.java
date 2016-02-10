@@ -22,16 +22,25 @@ public class OI {
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
     
-	Joystick DriverXbox = new Joystick(1);
-	Button button1 = new JoystickButton(DriverXbox, 1);
+	Joystick DriverXbox = new Joystick(0);
+	Button buttonA = new JoystickButton(DriverXbox, 1);
+	
+	//Joystick OperatorJoystick = new Joystick(1);
+	//What are button numbers actually.  Use port mapping to find out and replace 1 and 2 in lines below
+	Button joystickForward = new JoystickButton(OperatorJoystick, 1);
+	Button joystickBackwards = new JoystickButton(OperatorJoystick, 2);
+
+	
     //// TRIGGERING COMMANDS WITH BUTTONS
-    // Once you have a button, it's trivial to bind it to a button in one of
+	// joystickBackwards.whenPressed(new intakeBall());
+	buttonA.whenPressed(new intakeBall());
+	// Once you have a button, it's trivial to bind it to a button in one of
     // three ways:
     
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenPressed(new ExampleCommand());
-    
+    // Wayne Example buttonA.whenPressed(new ExampleCommand())
     // Run the command while the button is being held down and interrupt it once
     // the button is released.
     // button.whileHeld(new ExampleCommand());
@@ -39,5 +48,9 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+
+public Joystick getJoystick() {
+    return DriverXbox;
+}
 }
 

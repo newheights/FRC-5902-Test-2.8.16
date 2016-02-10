@@ -36,6 +36,8 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+        // Initialize all subsystems
+
         drivetrain = new DriveTrain(); // Wayne
         intake = new Intake(); // Wayne
 		oi = new OI();
@@ -94,6 +96,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        log();
     }
 
     public void teleopInit() {
@@ -109,6 +112,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        log();
     }
     
     /**
@@ -116,5 +120,13 @@ public class Robot extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    }
+    
+    /**
+	 * The log method puts interesting information to the SmartDashboard.
+	 */
+    private void log() {
+        drivetrain.log();
+        intake.log();
     }
 }
